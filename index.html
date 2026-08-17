@@ -266,6 +266,9 @@ var FIXED = {
   accentColor: '#fe5000',
   buttonText: 'GO TO COURSE',
   meetingPlatform: 'Teams',
+  // Solid 6-digit hex tint (not an 8-digit alpha hex) — some email/paste
+  // sanitizers reject 8-digit hex colors and silently drop the whole style.
+  highlightBg: '#fff6f2',
   fontStack: "'Colfax',-apple-system,Helvetica,Arial,sans-serif"
 };
 
@@ -421,7 +424,7 @@ function buildHtml(){
 +'          <hr style="border:none;border-top:1px solid #e6e6e6;margin:0 0 18px;">\n'
 +'          <p style="margin:0 0 6px;font-size:15px;font-weight:600;color:'+FIXED.accentColor+';">Your Meeting Invite(s)</p>\n'
 +'          <p style="margin:0 0 10px;">When you registered for this course, you should have received '+FIXED.meetingPlatform+' invites for each of the <strong>'+esc(numSessions)+'</strong> live events in this course. To launch the course, please visit the link below.</p>\n'
-+'          <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td style="background-color:'+FIXED.accentColor+'0d;padding:15px;font-size:13.5px;line-height:21px;">\n'
++'          <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td bgcolor="'+FIXED.highlightBg+'" style="background-color:'+FIXED.highlightBg+';padding:15px;font-size:13.5px;line-height:21px;">\n'
 +'            '+scheduleHtml+'\n'
 +'          </td></tr>'+buttonHtml+'</table>\n'
 +'          <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td height="20"><br></td></tr></table>\n'
@@ -429,12 +432,9 @@ function buildHtml(){
 +'          <p style="margin:0 0 8px;font-size:15px;font-weight:600;color:'+FIXED.accentColor+';">What to Expect</p>\n'
 +'          <ul style="margin:0 0 18px;padding-left:20px;">\n'
 +'            <li style="margin-bottom:8px;"><strong>Format:</strong> Virtual instructor-led event(s) with scenarios and hands-on activities.</li>\n'
-+'            <li style="margin-bottom:8px;"><strong>Preparation:</strong> Please ensure you can log in to the LMS at <a href="'+FIXED.lmsUrl+'" style="color:'+FIXED.accentColor+';">'+FIXED.lmsUrl+'</a> to access the course materials.\n'
-+'              <ul style="margin:8px 0 0;padding-left:18px;">\n'
-+'                <li style="margin-bottom:6px;">You <strong>must</strong> log in prior to the event time and complete the <strong>LearnMeridian Fundamentals (General User)</strong> course (takes approximately 15 mins to complete).</li>\n'
-+'                <li style="margin-bottom:0;">If you have any trouble accessing the LMS, please email <a href="mailto:'+FIXED.lpEmail+'" style="color:'+FIXED.accentColor+';">'+FIXED.lpEmail+'</a>.</li>\n'
-+'              </ul>\n'
-+'            </li>\n'
++'            <li style="margin-bottom:8px;"><strong>Preparation:</strong> Please ensure you can log in to the LMS at <a href="'+FIXED.lmsUrl+'" style="color:'+FIXED.accentColor+';">'+FIXED.lmsUrl+'</a> to access the course materials.</li>\n'
++'            <li style="margin-bottom:6px;margin-left:20px;list-style-type:circle;">You <strong>must</strong> log in prior to the event time and complete the <strong>LearnMeridian Fundamentals (General User)</strong> course (takes approximately 15 mins to complete).</li>\n'
++'            <li style="margin-bottom:8px;margin-left:20px;list-style-type:circle;">If you have any trouble accessing the LMS, please email <a href="mailto:'+FIXED.lpEmail+'" style="color:'+FIXED.accentColor+';">'+FIXED.lpEmail+'</a>.</li>\n'
 +'            <li style="margin-bottom:8px;"><strong>Access to '+esc(softwareName)+':</strong> You will need access to your utility’s instance of '+esc(softwareName)+' to complete assignments for this course.</li>\n'
 +'            <li style="margin-bottom:8px;"><strong>Engagement:</strong> Your active participation will make this a valuable experience for everyone. I encourage you to ask questions during the session as real-life situations often provide the best examples.</li>\n'
 +'            <li style="margin-bottom:0;"><strong>Course Completion:</strong> You must attend all required live sessions, complete daily assignments, and submit the final project by <strong>'+esc(finalProjectDate)+'</strong>. All coursework must be completed by this date. We also ask that you complete the course evaluation survey so that we can continue to improve this course through your recommendations.</li>\n'
