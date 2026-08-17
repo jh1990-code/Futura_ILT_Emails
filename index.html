@@ -387,13 +387,13 @@ function buildHtml(){
     scheduleHtml =
       '<strong>Schedule:</strong><br>\n' +
       lines.join('<br>\n') + '<br>\n' +
-      '<strong>Total Time in Live Sessions:</strong> ' + FIXED.sessionHoursShortcode;
+      '<strong>Total Hours of Live Events:</strong> ' + FIXED.sessionHoursShortcode;
   } else {
     var datesLine = esc(meetingStart) + (meetingEnd.trim() ? ' to ' + esc(meetingEnd) : '');
     scheduleHtml =
       '<strong>Meeting Dates:</strong> ' + datesLine + '<br>\n' +
       '<strong>Time:</strong> ' + esc(meetingTime) + '<br>\n' +
-      '<strong>Total Time in Live Sessions:</strong> ' + FIXED.sessionHoursShortcode;
+      '<strong>Total Hours of Live Events:</strong> ' + FIXED.sessionHoursShortcode;
   }
 
   var buttonHtml = '';
