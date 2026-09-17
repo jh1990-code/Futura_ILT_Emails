@@ -271,7 +271,7 @@ var FIXED = {
   // sanitizers reject 8-digit hex colors and silently drop the whole style.
   highlightBg: '#fff6f2',
   fontStack: "'Colfax',-apple-system,Helvetica,Arial,sans-serif",
-  audioNoteImageUrl: 'https://cdn5.dcbstatic.com/files/l/e/learnmeridian_docebosaas_com/wysiwyg_upload/1789665976764-phoneaudio.png',
+  audioNoteImageUrl: 'https://cdn5.dcbstatic.com/files/l/e/learnmeridian_docebosaas_com/wysiwyg_upload/1789669184601-phoneaudio2.png',
   audioNoteText: 'NOTE: If your computer does not have a built in microphone and you are unable to use computer audio, choose the Phone audio option when logging in.'
 };
 
@@ -392,8 +392,8 @@ function buildHtml(){
   // in this box, avoids that.
   var audioNoteHtml =
     '<br><br>\n' +
-    '<img src="'+FIXED.audioNoteImageUrl+'" alt="Phone audio" width="570" style="width:100%;max-width:570px;height:auto;display:block;border:0;margin-bottom:8px;">' +
-    '<span style="font-size:12.5px;font-style:italic;">'+esc(FIXED.audioNoteText)+'</span>';
+    '<span style="font-size:12.5px;font-style:italic;">'+esc(FIXED.audioNoteText)+'</span><br><br>\n' +
+    '<img src="'+FIXED.audioNoteImageUrl+'" alt="Phone audio" width="570" height="303" style="width:100%;max-width:570px;height:auto;display:block;border:0;">';
 
   var scheduleHtml;
   if(timeVaries){
