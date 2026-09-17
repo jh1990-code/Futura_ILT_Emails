@@ -384,11 +384,16 @@ function buildHtml(){
     ? ' at <a href="mailto:' + esc(instructorEmail) + '" style="color:' + esc(FIXED.accentColor) + ';">' + esc(instructorEmail) + '</a> or ' + esc(otherContact)
     : ' at <a href="mailto:' + esc(instructorEmail) + '" style="color:' + esc(FIXED.accentColor) + ';">' + esc(instructorEmail) + '</a>';
 
+  // No inner table here on purpose: an earlier version wrapped the icon+text
+  // in its own nested <table>, and Docebo's paste/send sanitizer silently
+  // dropped the <img> from it (same kind of thing that mangled the nested
+  // bullet list elsewhere) while leaving the text behind. Keeping this as a
+  // plain inline <img> + text, at the same nesting depth as everything else
+  // in this box, avoids that.
   var audioNoteHtml =
-    '<table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-top:12px;"><tr>' +
-      '<td valign="top" width="26" style="padding-right:8px;"><img src="'+FIXED.audioNoteImageUrl+'" alt="Phone audio" width="18" style="display:block;border:0;"></td>' +
-      '<td valign="top" style="font-size:12.5px;font-style:italic;line-height:18px;">'+esc(FIXED.audioNoteText)+'</td>' +
-    '</tr></table>';
+    '<br><br>\n' +
+    '<img src="'+FIXED.audioNoteImageUrl+'" alt="Phone audio" width="16" style="vertical-align:middle;border:0;margin-right:6px;">' +
+    '<span style="font-size:12.5px;font-style:italic;">'+esc(FIXED.audioNoteText)+'</span>';
 
   var scheduleHtml;
   if(timeVaries){
